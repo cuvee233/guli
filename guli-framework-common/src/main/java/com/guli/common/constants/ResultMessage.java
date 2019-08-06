@@ -10,5 +10,9 @@ public class ResultMessage {
     public static final String DELETE_SECCESS = "DELETE_SECCESS";
     public static final String DELETE_FAILED = "DELETE_FAILED";
     public static final String NO_DATA_QUERIED = "NO_DATA_QUERIED";
-
+    public static final String SAVE_SUCCESS = "SAVE_SUCCESS";
+    public static final String SAVE_FAILED = "SAVE_FAILED";
+    public static final String UPDATE_SUCCESS = "UPDATE_SUCCESS";
+    public static final String UPDATE_FAILED = "UPDATE_FAILED";
+    public static final String BAD_SQL_GRAMMAR = "BAD_SQL_GRAMMAR";
 }

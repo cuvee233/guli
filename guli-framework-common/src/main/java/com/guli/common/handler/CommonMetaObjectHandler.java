@@ -1,0 +1,32 @@
+package com.guli.common.handler;
+
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.reflection.MetaObject;
+import org.springframework.stereotype.Component;
+
+import java.util.Date;
+
+import static org.reflections.Reflections.log;
+
+/**
+ * @author weiyi
+ * @describe
+ * @since 2019/8/3 - 8:28
+ */
+@Component
+@Slf4j
+public class CommonMetaObjectHandler implements MetaObjectHandler {
+
+    @Override
+    public void insertFill(MetaObject metaObject) {
+        log.info("start insert fill ....");
+        this.setFieldValByName("gmtCreate", new Date(), metaObject);
+        this.setFieldValByName("gmtModified", new Date(), metaObject);
+    }
+
+    @Override
+    public void updateFill(MetaObject metaObject) {
+        this.setFieldValByName("gmtModified", new Date(), metaObject);
+    }
+}

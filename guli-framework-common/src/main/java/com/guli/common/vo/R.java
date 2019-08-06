@@ -1,6 +1,7 @@
 package com.guli.common.vo;
 
 import com.guli.common.constants.ResultCodeEnum;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -14,9 +15,13 @@ import java.util.Map;
 @Data
 public class R {
 
+    @ApiModelProperty(name = "返回状态码", value = "code")
     private Integer code;
+    @ApiModelProperty(name = "操作成功与否", value = "success")
     private boolean success;
+    @ApiModelProperty(name = "返回消息", value = "message")
     private String message;
+    @ApiModelProperty(name = "返回数据", value = "data")
     private Map<String, Object> data = new HashMap<>();
 
     public static R ok(){
