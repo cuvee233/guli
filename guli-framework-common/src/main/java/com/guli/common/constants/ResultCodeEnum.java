@@ -16,7 +16,11 @@ public enum ResultCodeEnum {
     SUCCESS(20000, "SUCCESS", true),
     BAD_SQL_GRAMMAR(20001, "BAD_SQL_GRAMMAR", false),
     JSON_PARSE_EXCEPTION(20001, "JSON_PARSE_EXCEPTION", false),
+    FILE_UPLOAD_SUCCESS(20000, "FILE_UPLOAD_SUCCESS", true),
+    FILE_UPLOAD_FAILED(20001, "FILE_UPLOAD_FAILED", false),
+    EXCEL_DATA_IMPORT_ERROR(20001, "EXCEL_DATA_IMPORT_ERROR", false),
     SQL_EXCEPTION(20001, "SQL_EXCEPTION", false);
+
     private Integer code;
     private String message;
     private boolean success;

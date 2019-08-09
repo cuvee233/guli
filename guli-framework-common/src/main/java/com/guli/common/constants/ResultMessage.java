@@ -15,4 +15,8 @@ public class ResultMessage {
     public static final String UPDATE_SUCCESS = "UPDATE_SUCCESS";
     public static final String UPDATE_FAILED = "UPDATE_FAILED";
     public static final String BAD_SQL_GRAMMAR = "BAD_SQL_GRAMMAR";
+    public static final String QUERAY_SUCCESS = "QUERAY_SUCCESS";
+    public static final String NOT_QUERAY = "NOT_QUERAY";
+    public static final String DATA_IMPORT_SUCCESS = "DATA_IMPORT_SUCCESS";
+    public static final String DATA_IMPORT_FAILED = "DATA_IMPORT_FAILED";
 }

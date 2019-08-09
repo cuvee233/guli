@@ -15,7 +15,5 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/edu/subject")
-public class SubjectController {
-
-}
+public class SubjectController {}
 

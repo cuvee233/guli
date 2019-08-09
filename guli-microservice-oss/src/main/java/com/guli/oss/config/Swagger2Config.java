@@ -1,4 +1,4 @@
-package com.guli.edu.config;
+package com.guli.oss.config;
 
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
@@ -19,24 +19,9 @@ public class Swagger2Config {
 	public Docket webApiConfig(){
 
 		return new Docket(DocumentationType.SWAGGER_2)
-				.groupName("webApi")
 				.apiInfo(webApiInfo())
 				.select()
-				.paths(Predicates.not(PathSelectors.regex("/admin/.*")))
-				.paths(Predicates.not(PathSelectors.regex("/oss/.*")))
 				.paths(Predicates.not(PathSelectors.regex("/error.*")))
-				.build();
-
-	}
-
-	@Bean
-	public Docket adminApiConfig(){
-
-		return new Docket(DocumentationType.SWAGGER_2)
-				.groupName("adminApi")
-				.apiInfo(adminApiInfo())
-				.select()
-				.paths(Predicates.and(PathSelectors.regex("/admin/.*")))
 				.build();
 
 	}
@@ -44,20 +29,11 @@ public class Swagger2Config {
 	private ApiInfo webApiInfo(){
 
 		return new ApiInfoBuilder()
-				.title("网站-课程中心API文档")
-				.description("本文档描述了课程中心微服务接口定义")
+				.title("文件上传通用服务")
+				.description("本文档描述了文件上传通用服务接口定义")
 				.version("1.0")
 				.contact(new Contact("Helen", "http://atguigu.com", "55317332@qq.com"))
 				.build();
 	}
 
-	private ApiInfo adminApiInfo(){
-
-		return new ApiInfoBuilder()
-				.title("后台管理系统-课程中心API文档")
-				.description("本文档描述了后台管理系统课程中心微服务接口定义")
-				.version("1.0")
-				.contact(new Contact("Helen", "http://atguigu.com", "55317332@qq.com"))
-				.build();
-	}
 }

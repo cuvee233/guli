@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -124,6 +125,17 @@ public class TeacherController {
         }
     }
 
+    @ApiOperation(value = "根据id查询")
+    @GetMapping("{id}")
+    public R getById(@ApiParam(name = "讲师id", value = "id")
+                         @PathVariable("id") String id) {
+       Teacher teacher = teacherService.getById(id);
+       if (teacher != null) {
+           return R.ok().data("item", teacher).message(ResultMessage.QUERAY_SUCCESS);
+       }
+       return R.error().message(ResultMessage.NOT_QUERAY);
+    }
+
     /**
      * 根据id修改讲师信息
      *
@@ -132,7 +144,7 @@ public class TeacherController {
      * @return
      */
     @ApiOperation(value = "根据ID修改讲师")
-    @GetMapping("{id}")
+    @PutMapping("{id}")
     public R update(@ApiParam(name = "讲师对象", value = "teacher")
                     @RequestBody Teacher teacher,
                     @ApiParam(name = "讲师id", value = "id")

@@ -2,6 +2,7 @@ package com.guli.common.handler;
 
 import com.guli.common.constants.ResultCodeEnum;
 import com.guli.common.constants.ResultMessage;
+import com.guli.common.exception.GuliException;
 import com.guli.common.util.ExceptionUtil;
 import com.guli.common.vo.R;
 import lombok.extern.slf4j.Slf4j;
@@ -58,5 +59,12 @@ public class GlobalExceptionHandler {
 		e.printStackTrace();
 		log.error(ExceptionUtil.getMessage(e));
 		return R.setResult(ResultCodeEnum.JSON_PARSE_EXCEPTION);
+	}
+
+	@ExceptionHandler(GuliException.class)
+	@ResponseBody
+	public R guliError(GuliException e) {
+		log.error(ExceptionUtil.getMessage(e));
+		return R.error().code(e.getCode()).message(e.getMessage());
 	}
 }
