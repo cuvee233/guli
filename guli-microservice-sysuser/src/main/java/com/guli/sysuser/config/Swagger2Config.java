@@ -36,7 +36,7 @@ public class Swagger2Config {
 				.title("系统用户通用服务")
 				.description("本文档描述了系统用户通用服务接口定义")
 				.version("1.0")
-				.contact(new Contact("Helen", "http://atguigu.com", "55317332@qq.com"))
+				.contact(new Contact("weiyi", "http://weiyi.com", "3305503956@qq.com"))
 				.build();
 	}
 
